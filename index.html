@@ -3,56 +3,80 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Advanced CSS - Assignment 1</title>
+    <title>Assignment - Animacija</title>
     <style>
-        a[href^="https://www.google.com"] {
-            color: green;
+
+        body{
+            background-color: #050210;
         }
 
-        a[target="_blank"] {
-            color: red;
+        #main-container {
+            width: 600px;
+            height: 500px;
+            margin: 0 auto;
+            background-color: #050210;
         }
 
-        #second-div p:nth-child(odd) {
-            color: blue;
+
+        #circle {
+            top: 300px;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 100%;
+            background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+            animation: rotate 1.5s infinite linear running;
+            box-shadow: 0px -66px 100px -50px #fb5dad, 66px 0px 100px -50px #55fb9f, -66px 0px 100px -50px #55fb9f, 0px 66px 100px -50px #b97aff;
         }
 
-        #second-div p:nth-child(even) {
-            color: red;
+        #ring{
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            margin: 0 auto;
+            border-radius: 100%;
+            background-color: #050210;
+            transform: translate(25px, 25px);
         }
 
-        #first-div>p::after {
-            content: " - NEW";
-            color: yellow;
+        #ring::before{
+            content: "";
+            position: absolute;
+            width: 250px;
+            height: 250px; 
+            border-radius: 100%;
+            background-color: #311d6e;
+            animation: pulse-ring 1s cubic-bezier(0.4, 0, 1, 1) infinite;
         }
 
-        body>p:last-child:hover {
-            font-style: italic;
+
+
+
+        @keyframes rotate {
+            100% {
+                rotate: 360deg;
+            }
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0);
+            }
+
+            100% {
+                opacity: 0;
+            }
         }
     </style>
 </head>
 
 <body>
-    <h1>Main Heading</h1>
-    <p>Paragraph 1</p>
-    <a href="https://www.google.com/">Google</a>
-    <a href="https://www.google.com/doodles">Google Doodles</a>
-    <a href="https://www.link-group.eu/" target="_blank">Goto Link Group</a>
-    <div id="first-div">
-        <h2>Subheading</h2>
-        <p>Paragraph 2</p>
-        <p>Paragraph 3</p>
-        <div id="second-div">
-            <h3>Sub subheading</h3>
-            <p>Paragraph 4</p>
-            <p>Paragraph 5</p>
-            <p>Paragraph 6</p>
-            <p>Paragraph 7</p>
-            <p>Paragraph 8</p>
+    <div id="main-container">
+        <div id="circle">
+            <div id="ring"></div>
         </div>
     </div>
-    <p>Paragraph 9</p>
-    <p>Paragraph 10</p>
 </body>
 
 </html>
