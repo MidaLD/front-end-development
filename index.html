@@ -3,69 +3,62 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Assignment - Animacija</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment - Kreiranje responsive galerije</title>
     <style>
-
         body{
-            background-color: #050210;
+            font-family: sans-serif;
+            background-color: #e6e6e6;
         }
 
         #main-container {
-            width: 600px;
-            height: 500px;
+            width: 70%;
             margin: 0 auto;
-            background-color: #050210;
         }
 
+        h1{
+            font-weight: normal;
+        }
 
-        #circle {
-            top: 300px;
-            width: 300px;
-            height: 300px;
-            margin: 0 auto;
+        #grid {
+            display: grid;
+            justify-content: center;
+            column-gap: 3vh;
+            row-gap: 30px;
+            grid-template-columns: 125px 125px 125px 125px 125px;
+            padding-bottom: 30px;
+        }
+
+        .tiles {
+            background-color: #6ba2d9;
+            background-image: url(placeholder-image.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            aspect-ratio: 16/11;
             position: relative;
-            border-radius: 100%;
-            background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
-            animation: rotate 1.5s infinite linear running;
-            box-shadow: 0px -66px 100px -50px #fb5dad, 66px 0px 100px -50px #55fb9f, -66px 0px 100px -50px #55fb9f, 0px 66px 100px -50px #b97aff;
         }
 
-        #ring{
+        .titles{
+            background-color: #faf7ff;
+            border-radius: 0 0 10px 10px;
             position: absolute;
-            width: 250px;
-            height: 250px;
-            margin: 0 auto;
-            border-radius: 100%;
-            background-color: #050210;
-            transform: translate(25px, 25px);
+            bottom: 0;
+            width: 125px;
+            text-align: center;
+            color: #5c5c5c;
+            font-size: 13px;
         }
 
-        #ring::before{
-            content: "";
-            position: absolute;
-            width: 250px;
-            height: 250px; 
-            border-radius: 100%;
-            background-color: #311d6e;
-            animation: pulse-ring 1s cubic-bezier(0.4, 0, 1, 1) infinite;
-        }
-
-
-
-
-        @keyframes rotate {
-            100% {
-                rotate: 360deg;
+        @media screen and (max-width: 768px) {
+            #grid {
+                grid-template-columns: 125px 125px 125px;
             }
         }
 
-        @keyframes pulse-ring {
-            0% {
-                transform: scale(0);
-            }
-
-            100% {
-                opacity: 0;
+        @media screen and (max-width: 414px) {
+            #grid {
+                grid-template-columns: 125px;
             }
         }
     </style>
@@ -73,9 +66,28 @@
 
 <body>
     <div id="main-container">
-        <div id="circle">
-            <div id="ring"></div>
+        <h1>Gallery Heading</h1>
+        <div id="grid">
+            <div class="tiles"><div class="titles">Image Title</div></div>
+            <div class="tiles"><div class="titles">Image Title</div></div>
+            <div class="tiles"><div class="titles">Image Title</div></div>
+            <div class="tiles"><div class="titles">Image Title</div></div>
+            <div class="tiles"><div class="titles">Image Title</div></div>
+            <div class="tiles"><div class="titles">Image Title</div></div>
+            <div class="tiles"><div class="titles">Image Title</div></div>
+            <div class="tiles"><div class="titles">Image Title</div></div>
+            <div class="tiles"><div class="titles">Image Title</div></div>
+            <div class="tiles"><div class="titles">Image Title</div></div>
         </div>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque asperiores sit rem explicabo quaerat atque
+            obcaecati beatae numquam voluptates nisi! Eius maiores repudiandae amet impedit magni aliquam ipsam tempore
+            nobis. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis labore aut harum odio temporibus
+            quisquam atque, explicabo nemo aliquam voluptatem nam quas autem consequuntur illum voluptate. Ut et sunt
+            nostrum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Est officia iure atque amet nemo totam
+            laboriosam quidem aliquid expedita minima corporis nam officiis qui libero, aspernatur ea facere, eaque
+            soluta! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi sapiente corrupti, perferendis quas
+            architecto aspernatur incidunt voluptatem necessitatibus cupiditate voluptatibus a id dignissimos dolor
+            placeat ducimus, veniam vel. Autem, ea.</p>
     </div>
 </body>
 
